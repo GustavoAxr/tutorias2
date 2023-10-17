@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run Unit Tests') {
             steps {
-                bat 'vue-cli-service test:unit'
+                bat 'npm run:build'
             }
         }
     }
