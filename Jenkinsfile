@@ -13,10 +13,15 @@ pipeline {
                 bat 'npm install'
             }
         }
+        stage('Build') {
+            steps {
+                bat 'npm run build'
+            }
+        }
 
         stage('Run Unit Tests') {
             steps {
-                bat 'npm run:build'
+                bat 'npm run test'
             }
         }
     }
