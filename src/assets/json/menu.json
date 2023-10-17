@@ -1,0 +1,70 @@
+{
+  "menu": [
+    {
+      "title": "Inicio",
+      "caption": "Espacio de docentes",
+      "icon": "dashboard",
+      "to": "inicio"
+    },
+    {
+      "title": "Asignacion de tutores",
+      "caption": "Asignacion de tutores a alumnos",
+      "icon": "join_right",
+      "to": "profesores"
+    },
+    {
+      "title": "Alumnos",
+      "caption": "Lista de alumnos completa",
+      "icon": "diversity_1",
+      "to": "alumnos"
+    },
+    {
+      "title": "Formato F-SA-01",
+      "caption": "Información general del tutorado",
+      "icon": "notes",
+      "to": "F-SA-01"
+    },
+    {
+      "title": "Evaluación del tutor",
+      "caption": "Evalua a tu tutor objetivamente",
+      "icon": "playlist_add_check",
+      "to": "F-SA-27"
+    },
+    {
+      "title": "Configuraciones",
+      "caption": "Accecibilidad",
+      "icon": "settings",
+      "to": "conf"
+    },
+    {
+      "title": "Areas de apoyo",
+      "caption": "Registro de areas de apoyo",
+      "icon": "diversity_3",
+      "to": "apoyo"
+    },
+    {
+      "title": "Actividades",
+      "caption": "Tabla para adición de actividades",
+      "icon": "app_registration",
+      "to": "activities"
+    },
+    {
+      "title": "Aprobar actividades",
+      "caption": "Aprobación de actividades ",
+      "icon": "key",
+      "to": "aprobacion"
+    },
+    {
+      "title": "Administracion de ciclos",
+      "caption": "Creacion de ciclos escolares ",
+      "icon": "verified",
+      "to": "ciclos"
+    },
+    {
+      "title": "Acerca de",
+      "caption": "Creadores y colaboradores",
+      "icon": "help",
+      "to": "acercaDe"
+    }
+  ]
+}

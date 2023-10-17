@@ -1,0 +1,640 @@
+const _dataTutorado = { nombre_completo: null, matricula: null, direccion: null,
+telefono: null, fecha_nacimiento: null, correo: null, estado_civil: null,
+lugar_procedencia: null, carrera: null, cuatri_y_grupo: null, contacto: null,
+telefono_contacto: null, };
+
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Matrícula"
+    v-model="data.cuestionarioTutorado.matricula"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Dirección"
+    v-model="data.cuestionarioTutorado.direccion"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Teléfono"
+    v-model="data.cuestionarioTutorado.telefono"
+    mask="(###) - ### - ####"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    type="date"
+    label="Fecha de nacimiento"
+    v-model="dataTutorado.fecha_nacimiento"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Correo electronico"
+    v-model="dataTutorado.correo"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Estado civil"
+    v-model="dataTutorado.estado_civil"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Lugar de procedencia"
+    v-model="dataTutorado.lugar_procedencia"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input dense outlined label="Carrera" v-model="dataTutorado.carrera" />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Cuatrimestre y grupo"
+    v-model="dataTutorado.cuatri_y_grupo"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Nombre de contacto"
+    v-model="dataTutorado.contacto"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <q-input
+    dense
+    outlined
+    label="Teléfono contacto"
+    v-model="dataTutorado.telefono_contacto"
+    mask="(###) - ### - ####"
+  />
+</div>
+
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Dirección</span>
+  <q-input
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.direccion"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Trabajas?</span>
+  <q-select
+    dense
+    outlined
+    :options="['SI', 'NO']"
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.trabajas"
+  />
+</div>
+<div
+  v-if="socioeconomicos.trabajas === 'SI'"
+  class="text-subtitle2 q-pa-sm col-12 col-md-4"
+>
+  <span>¿En qué?</span>
+  <q-input
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.enQue"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Depende alguien económicamente de ti?</span>
+  <q-select
+    dense
+    outlined
+    :options="['SI', 'NO']"
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.dependeAlguienDeTi"
+  />
+</div>
+<div
+  v-if="socioeconomicos.dependeAlguienDeTi === 'SI'"
+  class="text-subtitle2 q-pa-sm col-12 col-md-4"
+>
+  <span>¿Quién?</span>
+  <q-input
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.quienDependeDeTi"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿De quién dependes economicamente?</span>
+  <q-input
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.dependenciaEconomica"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Ingreso mensual</span>
+  <q-input
+    prefix="$"
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.ingresoMensual"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿A qué se dedica tu papá?</span>
+  <q-input
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.trabajoPadre"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿A qué se dedica tu mamá?</span>
+  <q-input
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.trabajoMadre"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Cuantos hermanos tienes?</span>
+  <q-input
+    type="number"
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.numeroHermanos"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>La casa que habitas es: </span>
+  <q-select
+    dense
+    outlined
+    :options="['Propia', 'Rentada', 'Prestada', 'Otros']"
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.laCasaEs"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-12">
+  <span>Servicios con los que cuentas </span>
+  <div class="q-gutter-sm">
+    <q-checkbox
+      v-model="socioeconomicos.servicios"
+      val="Agua potable"
+      label="Agua potable"
+      color="teal"
+    />
+    <q-checkbox
+      v-model="socioeconomicos.servicios"
+      val="Energía eléctrica"
+      label="Energía eléctrica"
+      color="orange"
+    />
+    <q-checkbox
+      v-model="socioeconomicos.servicios"
+      val="Teléfono fijo"
+      label="Teléfono fijo"
+      color="red"
+    />
+    <q-checkbox
+      v-model="socioeconomicos.servicios"
+      val="Estufa a gas"
+      label="Estufa a gas"
+      color="cyan"
+    />
+    <q-checkbox
+      v-model="socioeconomicos.servicios"
+      val="TV de paga"
+      label="TV de paga"
+      color="cyan"
+    />
+    <q-checkbox
+      v-model="socioeconomicos.servicios"
+      val="Internet"
+      label="Internet"
+      color="cyan"
+    />
+    <q-checkbox
+      v-model="socioeconomicos.servicios"
+      val="Piso cemento"
+      label="Piso cemento"
+      color="cyan"
+    />
+    <q-checkbox
+      v-model="socioeconomicos.servicios"
+      val="Tipo Techo"
+      label="Tipo Techo"
+      color="cyan"
+    />
+  </div>
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Ingreso familiar mensual (aproximado): </span>
+  <q-input
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.ingresoFamAprox"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Recibe algún tipo de beca?</span>
+  <q-select
+    dense
+    outlined
+    :options="['SI', 'NO']"
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.recibeBeca"
+  />
+</div>
+<div
+  v-if="socioeconomicos.recibeBeca === 'SI'"
+  class="text-subtitle2 q-pa-sm col-12 col-md-4"
+>
+  <span>¿Cuales?</span>
+  <q-input
+    dense
+    outlined
+    label="Escribe tu respuesta aquí"
+    v-model="socioeconomicos.cuales"
+  />
+</div>
+//aspectos personales
+
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Especifica: </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.especificaEnfermedad"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Padeces alguna discapacidad?</span>
+  <q-select
+    dense
+    outlined
+    :options="['SI', 'NO']"
+    label="Escribe tu respuesta aquí"
+    v-model="personales.discapacidad"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Especifica: </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.especificaDiscapacidad"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Fumas?</span>
+  <q-select
+    dense
+    outlined
+    :options="['SI', 'NO']"
+    label="Escribe tu respuesta aquí"
+    v-model="personales.fumas"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Especifica cantidad y frecuencia: </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.cantidadyFrecuencia"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Ingieres bebidas alcohólicas: </span>
+  <q-select
+    dense
+    outlined
+    :options="['SI', 'NO']"
+    label="Escribe tu respuesta aquí"
+    v-model="personales.tomas"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Especifica cantidad y frecuencia: </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.cantYFrecuenciaAlcohol"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Padeces Ansiedad / Depresión / Otro(s)? </span>
+  <q-select
+    dense
+    outlined
+    :options="['SI', 'NO']"
+    label="Escribe tu respuesta aquí"
+    v-model="personales.transtornos"
+  />
+</div>
+
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Has tenido algún acercamiento con sustancias ilegales? </span>
+  <q-select
+    dense
+    outlined
+    :options="['SI', 'NO']"
+    label="Escribe tu respuesta aquí"
+    v-model="personales.drogas"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Especifica cantidad y frecuencia: </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.cantYfrecuenciaDrogas"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Cuáles consideras que son tus principales actitudes positivas? </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.actitudPositiva"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Tienes alguna actitud que consideres cambiar? </span>
+  <q-select
+    dense
+    :options="['SI', 'NO']"
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.actitudNegativa"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Cuál?</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.cualActitudNegativa"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Cuáles son tus valores?</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.valores"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Señala tres situaciones o aspectos que te provocan temor: </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.situacionesDeTemor"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Qué metas tienes para tu futuro personal?</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.metasPersonal"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Qué metas tienes para tu futuro académico?</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.metasAcademicas"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿A qué te dedicas en tu tiempo libre?</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.pasatiempo"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Qué deportes prácticas?</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.deporte"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Qué instrumento de música tocas?</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.instrumento"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Indica habilidades para la danza, baile o canto</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="personales.baileOCanto"
+  />
+</div>
+
+//academicos
+
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Localidad</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.localidad"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Entidad</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.entidad"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Especialidad</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.especialidad"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Promedio</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.promedio"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>Puntaje de EXANI-II</span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.puntageExani"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Por qué elegiste estudiar en una Universidad Tecnológica? </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.porqueElegisteLaCarrera"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Ésta Universidad era tu primera opción? </span>
+  <q-select
+    :options="['SI', 'NO']"
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.primeraOpcionUni"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Ésta carrera era tu primera opción?</span>
+  <q-select
+    :options="['SI', 'NO']"
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.primeraOpcionCarrera"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Qué esperas de esta carrera? </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.espectativas"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span
+    >¿Tienes planeado presentar examen de admisión para ingresar a otra
+    Universidad o carrera?
+  </span>
+  <q-select
+    :options="['SI', 'NO']"
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.otraUniversidad"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Qué materias se te dificultan más? </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.materiasDificultosas"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span
+    >Si has reprobado alguna materia o presentado examen extraordinario, indica
+    cuáles:
+  </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.reprobado"
+  />
+</div>
+
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span>¿Cuentas en tu casa con algunos libros que apoyan tus estudios? </span>
+  <q-select
+    :options="['SI', 'NO']"
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.libros"
+  />
+</div>
+<div
+  v-if="academicos.libros === 'SI'"
+  class="text-subtitle2 q-pa-sm col-12 col-md-4"
+>
+  <span>¿Cuántos aproximadamente? </span>
+  <q-input
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.cuantosLibros"
+  />
+</div>
+<div class="text-subtitle2 q-pa-sm col-12 col-md-4">
+  <span
+    >¿Tienes computadora en tu casa como apoyo para tus trabajos y tareas
+    escolares?
+  </span>
+  <q-select
+    :options="['SI', 'NO']"
+    dense
+    outlined
+    label="Escriba tu respuesta aquí"
+    v-model="academicos.cuentasConComputadora"
+  />
+</div>
